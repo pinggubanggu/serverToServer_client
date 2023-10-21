@@ -1,8 +1,10 @@
 package com.example.client.controller;
 
+import com.example.client.dto.Req;
 import com.example.client.dto.UserResponse;
 import com.example.client.service.RestTemplateService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,8 +22,21 @@ public class ApiController {
 
   @GetMapping("/hello")
   public UserResponse getHello() {
+    return restTemplateService.hello();
+  }
 
-    restTemplateService.post();
-    return new UserResponse();
+  @PostMapping("/post")
+  public UserResponse getPost() {
+    return restTemplateService.post();
+  }
+
+  @PostMapping("/exchange")
+  public UserResponse getExchange() {
+    return restTemplateService.exchange();
+  }
+
+  @PostMapping("/genericExchange")
+  public Req<UserResponse> getGenericExchange() {
+    return restTemplateService.genericExchange();
   }
 }
