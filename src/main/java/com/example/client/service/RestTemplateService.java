@@ -116,7 +116,7 @@ public class RestTemplateService {
       new Req.Header()
     );
 
-    req.setResBody(
+    req.setBody(
       userRequest
     );
 
